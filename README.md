@@ -2,7 +2,7 @@
 
 ### How to build:
 
-mvn clean install 
+mvn clean package 
 
 ### How to Run 
 
@@ -15,5 +15,5 @@ goto http://localhost:8080/
 ### Features 
 1. Displays country-wise "Total Confirmed", "New Confirmed", "Total Deaths", "New Deaths"
 2. Shows summary on the top
-3. You can search for the country
+3. You can search for any country
 
