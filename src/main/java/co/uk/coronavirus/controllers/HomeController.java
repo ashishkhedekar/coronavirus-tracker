@@ -18,7 +18,7 @@ import java.text.SimpleDateFormat;
 public class HomeController
 {
    private static final SimpleDateFormat DATE_FORMAT_WS = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
-   private static final SimpleDateFormat DATE_FORMAT_APPLICATION = new SimpleDateFormat("dd-MM-yyyy");
+   private static final SimpleDateFormat DATE_FORMAT_APPLICATION = new SimpleDateFormat("dd-MMM-yyyy");
 
    @Autowired
    private CoronaVirusSummaryService coronaVirusSummaryService;
