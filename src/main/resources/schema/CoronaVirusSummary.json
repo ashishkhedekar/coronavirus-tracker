@@ -1,0 +1,151 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "title": "The Root Schema",
+    "description": "The root schema comprises the entire JSON document.",
+    "required": [
+        "Countries",
+        "Date"
+    ],
+    "properties": {
+        "Countries": {
+            "$id": "#/properties/Countries",
+            "type": "array",
+            "title": "The Countries Schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": [],
+            "items": {
+                "$id": "#/properties/Countries/items",
+                "type": "object",
+                "title": "The Items Schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": {},
+                "examples": [
+                    {
+                        "TotalRecovered": 0.0,
+                        "NewConfirmed": 0.0,
+                        "TotalDeaths": 0.0,
+                        "TotalConfirmed": 0.0,
+                        "Slug": "",
+                        "NewDeaths": 0.0,
+                        "NewRecovered": 0.0,
+                        "Country": ""
+                    },
+                    {
+                        "TotalRecovered": 0.0,
+                        "NewConfirmed": 0.0,
+                        "TotalDeaths": 0.0,
+                        "TotalConfirmed": 0.0,
+                        "NewDeaths": 0.0,
+                        "Slug": "-azerbaijan",
+                        "NewRecovered": 0.0,
+                        "Country": " Azerbaijan"
+                    }
+                ],
+                "required": [
+                    "Country",
+                    "Slug",
+                    "NewConfirmed",
+                    "TotalConfirmed",
+                    "NewDeaths",
+                    "TotalDeaths",
+                    "NewRecovered",
+                    "TotalRecovered"
+                ],
+                "properties": {
+                    "Country": {
+                        "$id": "#/properties/Countries/items/properties/Country",
+                        "type": "string",
+                        "title": "The Country Schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": "",
+                        "examples": [
+                            ""
+                        ]
+                    },
+                    "Slug": {
+                        "$id": "#/properties/Countries/items/properties/Slug",
+                        "type": "string",
+                        "title": "The Slug Schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": "",
+                        "examples": [
+                            ""
+                        ]
+                    },
+                    "NewConfirmed": {
+                        "$id": "#/properties/Countries/items/properties/NewConfirmed",
+                        "type": "integer",
+                        "title": "The Newconfirmed Schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0,
+                        "examples": [
+                            0
+                        ]
+                    },
+                    "TotalConfirmed": {
+                        "$id": "#/properties/Countries/items/properties/TotalConfirmed",
+                        "type": "integer",
+                        "title": "The Totalconfirmed Schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0,
+                        "examples": [
+                            0
+                        ]
+                    },
+                    "NewDeaths": {
+                        "$id": "#/properties/Countries/items/properties/NewDeaths",
+                        "type": "integer",
+                        "title": "The Newdeaths Schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0,
+                        "examples": [
+                            0
+                        ]
+                    },
+                    "TotalDeaths": {
+                        "$id": "#/properties/Countries/items/properties/TotalDeaths",
+                        "type": "integer",
+                        "title": "The Totaldeaths Schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0,
+                        "examples": [
+                            0
+                        ]
+                    },
+                    "NewRecovered": {
+                        "$id": "#/properties/Countries/items/properties/NewRecovered",
+                        "type": "integer",
+                        "title": "The Newrecovered Schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0,
+                        "examples": [
+                            0
+                        ]
+                    },
+                    "TotalRecovered": {
+                        "$id": "#/properties/Countries/items/properties/TotalRecovered",
+                        "type": "integer",
+                        "title": "The Totalrecovered Schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0,
+                        "examples": [
+                            0
+                        ]
+                    }
+                }
+            }
+        },
+        "Date": {
+            "$id": "#/properties/Date",
+            "type": "string",
+            "title": "The Date Schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "2020-03-29T02:07:26.174102617Z"
+            ]
+        }
+    }
+}

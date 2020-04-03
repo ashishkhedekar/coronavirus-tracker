@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Corona Virus Stats</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!--    <link rel="stylesheet" th:ref="/static/css/application-css.css">-->
+    <link rel="stylesheet" href="/css/application.css"/>
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="/js/coronavirus.js"></script>
+
+</head>
+<body>
+
+<div class="jumbotron">
+    <h1 class="display-4">Coronavirus Stats</h1>
+    <p class="lead"> This page displays current coronavirus stats. Last updated <span th:text="${lastUpdatedTime}"/></p>
+    <hr class="my-4">
+
+    <table class="table table-borderless">
+        <tbody>
+        <tr>
+            <td><span th:text="${maxDeaths}"></span></td>
+            <td><span th:text="${maxConfirmed}"></span></td>
+        </tr>
+        <tr>
+            <td><span th:text="${newDeaths}"></span></td>
+            <td><span th:text="${newConfirmed}"></span></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<input type="text" id="searchCountryInput" placeholder="Search for country.." class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+<table class="table table-striped" id="countriesStatus">
+    <thead>
+    <tr>
+        <th> Country</th>
+        <th> Total Confirmed</th>
+        <th> New Confirmed</th>
+        <th> Total Deaths</th>
+        <th> New Deaths</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${coronaVirusSummary.countries.empty}">
+        <td colspan="2"> No Stats Available</td>
+    </tr>
+    <tr th:each="country : ${coronaVirusSummary.countries}">
+        <td><span th:text="${country.country}"></span></td>
+        <td><span th:text="${country.totalConfirmed}"></span></td>
+        <td><span th:text="${country.newConfirmed}"></span></td>
+        <td><span th:text="${country.totalDeaths}"></span></td>
+        <td><span th:text="${country.newDeaths}"></span></td>
+
+    </tr>
+    </tbody>
+</table>
+
+
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    This is running on server <p class="lead" th:text="${hostAddress}"></p>
+</div>
+
+<footer>
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <a href="https://mdbootstrap.com/"> Ashish Khedekar</a>
+    </div>
+</footer>
+
+</body>
+</html>

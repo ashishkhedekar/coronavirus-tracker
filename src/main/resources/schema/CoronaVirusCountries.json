@@ -1,0 +1,81 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "http://example.com/example.json",
+  "type": "array",
+  "title": "The Root Schema",
+  "description": "The root schema comprises the entire JSON document.",
+  "items": {
+    "$id": "#/items",
+    "type": "object",
+    "title": "The Items Schema",
+    "description": "An explanation about the purpose of this instance.",
+    "default": {},
+    "examples": [
+      {
+        "Country": "",
+        "Slug": "",
+        "Provinces": [
+          ""
+        ]
+      },
+      {
+        "Provinces": [
+          ""
+        ],
+        "Country": " Azerbaijan",
+        "Slug": "-azerbaijan"
+      },
+      {
+        "Country": "Afghanistan",
+        "Slug": "afghanistan",
+        "Provinces": [
+          ""
+        ]
+      }
+    ],
+    "required": [
+      "Country",
+      "Slug",
+      "Provinces"
+    ],
+    "properties": {
+      "Country": {
+        "$id": "#/items/properties/Country",
+        "type": "string",
+        "title": "The Country Schema",
+        "description": "An explanation about the purpose of this instance.",
+        "default": "",
+        "examples": [
+          ""
+        ]
+      },
+      "Slug": {
+        "$id": "#/items/properties/Slug",
+        "type": "string",
+        "title": "The Slug Schema",
+        "description": "An explanation about the purpose of this instance.",
+        "default": "",
+        "examples": [
+          ""
+        ]
+      },
+      "Provinces": {
+        "$id": "#/items/properties/Provinces",
+        "type": "array",
+        "title": "The Provinces Schema",
+        "description": "An explanation about the purpose of this instance.",
+        "default": [],
+        "items": {
+          "$id": "#/items/properties/Provinces/items",
+          "type": "string",
+          "title": "The Items Schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            ""
+          ]
+        }
+      }
+    }
+  }
+}
