@@ -4,6 +4,8 @@ import co.uk.coronavirus.comparators.ComparisonCriteria;
 import co.uk.coronavirus.comparators.CountryComparator;
 import co.uk.coronavirus.generated.CoronaVirusSummary;
 import co.uk.coronavirus.services.CoronaVirusSummaryService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,11 +15,12 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Controller
 public class HomeController
 {
-   private static final SimpleDateFormat DATE_FORMAT_WS = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
+   private static final SimpleDateFormat DATE_FORMAT_WS = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
    private static final SimpleDateFormat DATE_FORMAT_APPLICATION = new SimpleDateFormat("dd-MMM-yyyy");
 
    @Autowired
@@ -46,8 +49,15 @@ public class HomeController
                .stream().max(new CountryComparator(ComparisonCriteria.NEW_CONFIRMED))
                .ifPresent(country -> model.addAttribute("newConfirmed", String.format("Max New Confirmed - %s - %s ", country.getCountry(), country.getNewConfirmed())));
 
-      final String sanitizedDate = coronaVirusSummary.getDate().substring(0, 23) + "Z";
-      model.addAttribute("lastUpdatedTime", DATE_FORMAT_APPLICATION.format(DATE_FORMAT_WS.parse(sanitizedDate)));
+      if (coronaVirusSummary.getDate() != null)
+      {
+         model.addAttribute("lastUpdatedTime", DATE_FORMAT_APPLICATION.format(DATE_FORMAT_WS.parse(coronaVirusSummary.getDate())));
+      }
+      else
+      {
+         model.addAttribute("lastUpdatedTime", DATE_FORMAT_APPLICATION.format(new Date()));
+      }
+
       model.addAttribute("hostAddress", InetAddress.getLocalHost().getHostAddress());
 
       return "home";
